@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "echo 'No serve script defined yet'",
-    "dev": "echo 'No dev script defined yet'"
+    "serve": "http-server . -p 8080 --cors",
+    "dev": "http-server . -p 8080 --cors"
   },
   "keywords": [],
   "author": "",
