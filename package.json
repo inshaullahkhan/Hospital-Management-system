@@ -1,0 +1,13 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "echo 'No serve script defined yet'",
+    "dev": "echo 'No dev script defined yet'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
