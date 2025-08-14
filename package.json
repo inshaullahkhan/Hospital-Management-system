@@ -1,0 +1,15 @@
+{
+  "name": "hospital-management-system",
+  "version": "1.0.0",
+  "description": "Complete Hospital Management System with Vue.js frontend and Node.js backend",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "serve": "cd frontend && npm run preview"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
