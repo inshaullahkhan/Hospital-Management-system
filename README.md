@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hospital Management System
 
 A comprehensive full-stack Hospital Management System built with Vue.js, Node.js, and PostgreSQL.
@@ -240,3 +241,12 @@ For support and questions:
 - [ ] Multi-language support
 - [ ] Advanced search and filtering
 - [ ] Backup and data export tools
+=======
+# Hospital-Management-system
+
+This repository was initialized by Builder.io.
+
+## Getting Started
+
+Welcome to your new repository! You can now start building your project.
+>>>>>>> origin/main
