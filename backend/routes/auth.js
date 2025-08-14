@@ -15,13 +15,26 @@ router.post('/login', [
     try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ 
+            return res.status(400).json({
                 message: 'Validation failed',
                 errors: errors.array()
             });
         }
 
         const { email, password } = req.body;
+
+        // Auto-create admin user if it doesn't exist and we're trying to login as admin
+        if (email === 'admin@hospital.com') {
+            const adminCheck = await pool.query('SELECT id FROM users WHERE email = $1', [email]);
+            if (adminCheck.rows.length === 0) {
+                const hashedPassword = await bcrypt.hash('admin123', 12);
+                await pool.query(`
+                    INSERT INTO users (email, username, password, role, first_name, last_name, phone, is_active)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                `, ['admin@hospital.com', 'admin', hashedPassword, 'admin', 'System', 'Administrator', '+1234567890', true]);
+                console.log('✅ Admin user created automatically');
+            }
+        }
 
         // Find user
         const result = await pool.query(
