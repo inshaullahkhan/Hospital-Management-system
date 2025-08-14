@@ -11,6 +11,7 @@ const patientRoutes = require('./routes/patients');
 const appointmentRoutes = require('./routes/appointments');
 const invoiceRoutes = require('./routes/invoices');
 const medicalRecordRoutes = require('./routes/medicalRecords');
+const healthRoutes = require('./routes/health');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 // Routes
+app.use('/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/doctors', doctorRoutes);
