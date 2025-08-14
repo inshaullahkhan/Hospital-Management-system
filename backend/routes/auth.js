@@ -47,9 +47,12 @@ router.post('/login', [
         }
 
         const user = result.rows[0];
+        console.log(`🔐 Login attempt for: ${email}, Role: ${user.role}`);
 
         // Check password
         const isPasswordValid = await bcrypt.compare(password, user.password);
+        console.log(`🔑 Password validation: ${isPasswordValid ? 'SUCCESS' : 'FAILED'}`);
+
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }

@@ -38,7 +38,27 @@ app.use('/api/medical-records', medicalRecordRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
-    res.json({ status: 'OK', message: 'Hospital Management System API is running' });
+    res.json({
+        status: 'OK',
+        message: 'Hospital Management System API is running',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV
+    });
+});
+
+// API info endpoint
+app.get('/api', (req, res) => {
+    res.json({
+        message: 'Hospital Management System API',
+        version: '1.0.0',
+        endpoints: {
+            auth: '/api/auth',
+            users: '/api/users',
+            doctors: '/api/doctors',
+            patients: '/api/patients',
+            appointments: '/api/appointments'
+        }
+    });
 });
 
 // Error handling middleware
